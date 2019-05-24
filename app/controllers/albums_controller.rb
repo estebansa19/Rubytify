@@ -1,13 +1,10 @@
 class AlbumsController < ApplicationController
-  before_action :set_artist
 
   def index
-    render json: @artist.albums
+    render json: { data: Album.all }
   end
 
-  private
-
-  def set_artist
-    @artist = Artist.find(params[:artist_id])
+  def show
+    render json: { data: Album.find(params[:id]).select(:name, :spotify_url, :preview_url, :duration_ms, :explicit) }
   end
 end

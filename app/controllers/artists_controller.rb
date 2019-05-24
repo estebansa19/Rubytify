@@ -2,11 +2,11 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :update, :destroy]
 
   def index
-    render json: Artist.all
+    render json: { data: Artist.all }
   end
 
   def show
-    render json: @artist
+    render json: { data: @artist }
   end
 
   private

@@ -10,7 +10,7 @@ namespace :imports do
       Artist.connection
       if artist
         a = Artist.create(
-          name: artist.name, image: artist.images.first['url'], genres: artist.genres,
+          name: artist.name, image: artist.images.first['url'], genres: artist.genres.to_a,
           popularity: artist.popularity, spotify_url: artist.external_urls['spotify'],
           spotify_id: artist.id
         )
