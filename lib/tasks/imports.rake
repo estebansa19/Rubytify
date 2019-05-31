@@ -16,12 +16,14 @@ namespace :imports do
         )
 
         artist.albums.each do |album|
+          sleep 1
           alb = a.albums.create(
             name: album.name, image: album.images.first['url'], spotify_url: album.external_urls['spotify'],
             total_tracks: album.total_tracks, spotify_id: album.id
           )
 
           album.tracks.each do |track|
+            sleep 1
             alb.songs.create(
               name: track.name, spotify_url: track.external_urls['spotify'], preview_url: track.preview_url,
               duration_ms: track.duration_ms, explicit: track.explicit, spotify_id: track.id
