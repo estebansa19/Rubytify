@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root to: 'artists#index'
     resources :artists
 
-    get '/genres/list', to: 'genres#list'
+    get '/genres', to: 'genres#list'
     get '/genres/:name/random_song', to: 'genres#random_song'
 
     namespace :artists do
